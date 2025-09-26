@@ -1,0 +1,42 @@
+Table "doctrine_migration_versions" {
+  "version" varchar(191) [pk, not null]
+  "executed_at" timestamp [default: `NULL::timestamp without time zone`]
+  "execution_time" int4
+}
+
+Table "authors" {
+  "id" int4 [pk, not null, increment]
+  "name" varchar(255) [not null]
+}
+
+Table "book" {
+  "id" int4 [pk, not null, increment]
+  "title" varchar(255) [not null]
+}
+
+Table "book_authors" {
+  "book_id" int4 [not null]
+  "authors_id" int4 [not null]
+
+  Indexes {
+    (book_id, authors_id) [type: btree, name: "book_authors_pkey"]
+    book_id [type: btree, name: "idx_1d2c02c716a2b381"]
+    authors_id [type: btree, name: "idx_1d2c02c76de2013a"]
+  }
+}
+
+Table "messenger_messages" {
+  "id" int8 [pk, not null, increment]
+  "body" text [not null]
+  "headers" text [not null]
+  "queue_name" varchar(190) [not null]
+  "created_at" timestamp [not null, note: '(DC2Type:datetime_immutable)']
+  "available_at" timestamp [not null, note: '(DC2Type:datetime_immutable)']
+  "delivered_at" timestamp [default: `NULL::timestamp without time zone`, note: '(DC2Type:datetime_immutable)']
+
+  Indexes {
+    delivered_at [type: btree, name: "idx_75ea56e016ba31db"]
+    available_at [type: btree, name: "idx_75ea56e0e3bd61ce"]
+    queue_name [type: btree, name: "idx_75ea56e0fb7336f0"]
+  }
+}

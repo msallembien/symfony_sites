@@ -1,0 +1,14 @@
+2025-09-23T08:32:24.150Z
+Error: PostgreSQL connection error: error: database "app-o" does not exist
+    at getValidatedClient (/config/nvm/versions/node/v24.8.0/lib/node_modules/@dbml/cli/node_modules/@dbml/connector/dist/connectors/postgresConnector.js:21:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fetchSchemaJson (/config/nvm/versions/node/v24.8.0/lib/node_modules/@dbml/cli/node_modules/@dbml/connector/dist/connectors/postgresConnector.js:415:20)
+    at async connectionHandler (/config/nvm/versions/node/v24.8.0/lib/node_modules/@dbml/cli/lib/cli/connector.js:24:24)
+
+2025-09-23T09:13:27.019Z
+Error: PostgreSQL connection error: error: password authentication failed for user "app"
+    at getValidatedClient (/config/nvm/versions/node/v24.8.0/lib/node_modules/@dbml/cli/node_modules/@dbml/connector/dist/connectors/postgresConnector.js:21:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async fetchSchemaJson (/config/nvm/versions/node/v24.8.0/lib/node_modules/@dbml/cli/node_modules/@dbml/connector/dist/connectors/postgresConnector.js:415:20)
+    at async connectionHandler (/config/nvm/versions/node/v24.8.0/lib/node_modules/@dbml/cli/lib/cli/connector.js:24:24)
+
