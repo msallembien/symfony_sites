@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Entity\Book;
+use App\Entity\Authors;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,7 +25,13 @@ final class PremierController extends AbstractController
 
        $em->persist($book);
        $em->flush();
-       return new Response("livre bien sauvegarder" .$book->getTitle());
+
+       $Autheur = new Authors();
+       $Autheur->setName('Mervyn Sallembien');
+
+       $em->persist($Autheur);
+       $em->flush();
+       return new Response("Mervyn Sallembien" .$Autheur->getName());
    }
 
 }
